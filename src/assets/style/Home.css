@@ -1,0 +1,320 @@
+.home {
+  background-color: #201f24;
+  min-height: 79vh;
+  color: white;
+}
+
+.gamepad {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 26vh;
+}
+
+.gamepad-and-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.gamepad-and-logo > i {
+  font-size: 50px;
+  color: #ff4656;
+  margin-right: 12px;
+}
+
+.gamepad-and-logo > h1 {
+  font-family: "Press Start 2P", cursive;
+  font-size: 25px;
+}
+
+.gamepad-and-logo-searchbox {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55%;
+}
+
+.gamepad-and-logo-searchbox-boxes {
+  background-color: white;
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  box-shadow: 0px 15px 30px -19px rgba(255, 255, 255, 0.83);
+  -webkit-box-shadow: 0px 15px 30px -19px rgba(255, 255, 255, 0.83);
+  -moz-box-shadow: 0px 15px 30px -19px rgba(255, 255, 255, 0.83);
+}
+
+.gamepad-and-logo-searchbox-boxes-input {
+  width: 95%;
+  padding: 5px;
+  height: 100%;
+}
+
+.gamepad-and-logo-searchbox-boxes-input input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-indent: 15px;
+  outline: none;
+  font-size: 18px;
+}
+
+.search-results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#search-results-underline {
+  text-decoration: underline;
+  text-decoration-color: #ff4656;
+  text-decoration-thickness: 4px;
+}
+
+.games-filter {
+  border-radius: 10px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  border: 1px solid #ff4656;
+}
+
+.games-filter-plateform {
+  margin-left: 20px;
+}
+
+.games-filter-plateform label {
+  font-weight: 700;
+}
+
+.games-filter-plateform select {
+  background-color: #ff4656;
+  color: white;
+  border: none;
+  padding: 10px;
+  border: 2px solid #ff4656;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.games-filter-valid-button {
+  margin-right: 20px;
+}
+
+.games-filter-valid-button select {
+  background-color: #ff4656;
+  margin-right: 10px;
+  color: white;
+  border: none;
+  padding: 10px;
+  border: 2px solid #ff4656;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: 0;
+}
+
+.games-filter-valid-button button {
+  background-color: #ff4656;
+  color: white;
+  border: none;
+  padding: 10px;
+  border: 2px solid #ff4656;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.games-filter-valid-button button:hover {
+  background-color: white;
+  color: #ff4656;
+}
+
+.gamepad-and-logo-searchbox-boxes-icon {
+  width: 5%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.gamepad-and-logo-searchbox-boxes-icon i {
+  font-size: 20px;
+  margin-left: 5px;
+  color: #201f24;
+}
+
+.gamepad-and-logo-games {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gamepad-and-logo-games p {
+  margin-top: 5px;
+}
+
+.games {
+  /* background-color: green; */
+  margin: 0 40px;
+  margin-top: 30px;
+}
+
+.games-title h2 {
+  font-size: 16px;
+  font-family: "Press Start 2P", cursive;
+}
+
+/* cards */
+
+.cards {
+  min-height: 80vh;
+  margin-top: 20px;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  /* background-color: blue; */
+}
+
+.card-items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 6px;
+  width: 19%;
+  cursor: pointer;
+  /* background-color: rebeccapurple; */
+}
+
+.cards-image img {
+  object-fit: cover;
+  position: relative;
+  height: 350px;
+  width: 250px;
+  border-radius: 10px;
+  -webkit-filter: sepia(100%);
+  filter: sepia(100%);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.6s ease-in-out;
+}
+
+.cards-image img:hover {
+  -webkit-filter: sepia(0);
+  filter: sepia(0);
+}
+
+.cards-title {
+  margin-left: 5px;
+  width: 240px;
+  position: relative;
+  z-index: 10;
+  color: #ff4656;
+  bottom: 35px;
+  text-shadow: 1px 1px 2px #ff4656;
+  font-family: "Press Start 2P", cursive;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+/* pages */
+
+@media (max-width: 1380px) {
+  .card-items {
+    width: 23%;
+  }
+
+  .gamepad-and-logo-searchbox {
+    width: 55%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .card-items {
+    width: 30%;
+  }
+
+  .gamepad-and-logo-searchbox {
+    width: 60%;
+  }
+
+  gamepad-and-logo-searchbox-boxes-icon {
+    width: 8%;
+  }
+
+  .gamepad-and-logo-searchbox-boxes-input {
+    width: 92%;
+  }
+}
+
+@media (max-width: 920px) {
+  .card-items {
+    width: 40%;
+  }
+
+  .cards-image img {
+    object-fit: cover;
+    height: 350px;
+    width: 270px;
+  }
+
+  .gamepad-and-logo-searchbox {
+    width: 65%;
+  }
+
+  gamepad-and-logo-searchbox-boxes-icon {
+    width: 10%;
+  }
+
+  .gamepad-and-logo-searchbox-boxes-input {
+    width: 90%;
+  }
+}
+
+@media (max-width: 755px) {
+  .card-items {
+    width: 90%;
+  }
+
+  .cards-image img {
+    object-fit: cover;
+    height: 450px;
+    width: 400px;
+  }
+
+  .gamepad-and-logo-searchbox {
+    width: 62%;
+  }
+
+  .games-title {
+    text-align: center;
+  }
+
+  gamepad-and-logo-searchbox-boxes-icon {
+    width: 15%;
+  }
+
+  .gamepad-and-logo-searchbox-boxes-input {
+    width: 85%;
+  }
+}
+
+@media (min-width: 1765px) {
+  .cards-image img {
+    object-fit: cover;
+    height: 400px;
+    width: 330px;
+  }
+}

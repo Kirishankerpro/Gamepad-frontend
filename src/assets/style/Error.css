@@ -1,0 +1,109 @@
+.error {
+  height: 79vh;
+  background-color: #201f24;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#error-forbidden {
+  font-size: 15px;
+  font-family: "Press Start 2P", cursive;
+  margin-bottom: 10px;
+}
+
+#error-link {
+  font-size: 15px;
+  font-family: "Press Start 2P", cursive;
+  margin-top: 30px;
+}
+
+.error-return-arrow {
+  margin-top: 20px;
+}
+.error-return-arrow i {
+  font-size: 40px;
+  color: #ff4656;
+}
+
+.error-return-link i {
+  font-size: 40px;
+  margin: 0 20px;
+  color: #ff4656;
+}
+
+.error-return-link {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.error-return-link a {
+  text-decoration: none;
+}
+
+.error-return-link a h2 {
+  text-decoration: none;
+  color: #ff4656;
+  font-family: "Press Start 2P", cursive;
+  font-size: 15px;
+}
+
+/* heart-loader */
+
+.heart-loader {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform: rotate(45deg);
+  transform-origin: 40px 40px;
+}
+.heart-loader div {
+  top: 32px;
+  left: 32px;
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  background: #ff4656;
+  animation: heart-loader 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.heart-loader div:after,
+.heart-loader div:before {
+  content: " ";
+  position: absolute;
+  display: block;
+  width: 32px;
+  height: 32px;
+  background: #ff4656;
+}
+.heart-loader div:before {
+  left: -24px;
+  border-radius: 50% 0 0 50%;
+}
+.heart-loader div:after {
+  top: -24px;
+  border-radius: 50% 50% 0 0;
+}
+@keyframes heart-loader {
+  0% {
+    transform: scale(0.95);
+  }
+  5% {
+    transform: scale(1.1);
+  }
+  39% {
+    transform: scale(0.85);
+  }
+  45% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}

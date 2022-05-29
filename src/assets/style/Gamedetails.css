@@ -1,0 +1,48 @@
+.gamedetails {
+  min-height: 79vh;
+  background-color: #201f24;
+  color: white;
+}
+
+.gamedetails-items {
+  background-color: #201f24;
+}
+
+.gamedetails-cards-title {
+  display: flex;
+}
+
+.gamedetails-cards-title h2 {
+  font-size: 22px;
+  margin: 25px 30px;
+  font-family: "Press Start 2P", cursive;
+}
+
+.gamedetails-cards {
+  display: flex;
+  background-color: #201f24;
+}
+
+.gamedetails-cards-image {
+  margin: 0 20px;
+}
+.gamedetails-cards-image img {
+  object-fit: cover;
+  height: 500px;
+  width: 600px;
+  border-radius: 15px;
+}
+
+.gamedetails-cards-items {
+  margin-top: 30px;
+}
+
+.gamedetails-cards-items h2 {
+  font-size: 50px;
+}
+
+.gamedetails-cards-items p {
+  margin-top: 40px;
+}
+
+/* media queries */
