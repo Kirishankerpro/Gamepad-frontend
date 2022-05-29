@@ -5,8 +5,6 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const cors = require("cors");
-
 const Gamedetails = () => {
   const [isLoading, setisLoading] = useState(true);
   const [data, setData] = useState();
