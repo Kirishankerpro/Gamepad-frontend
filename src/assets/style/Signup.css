@@ -1,4 +1,4 @@
-.login {
+.signup {
   background-color: green;
   min-height: 79vh;
   display: flex;
@@ -8,7 +8,7 @@
   color: white;
 }
 
-.login-box {
+.signup-box {
   width: 70%;
   height: 60vh;
   border-radius: 10px;
@@ -18,7 +18,7 @@
   -moz-box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
 }
 
-.login-left-side {
+.signup-left-side {
   background: rgb(51, 52, 54);
   background: linear-gradient(
     180deg,
@@ -31,7 +31,7 @@
   border-right: 1px solid #ff4656;
 }
 
-.login-right-side {
+.signup-right-side {
   background: rgb(51, 52, 54);
   background: linear-gradient(
     0deg,
@@ -44,23 +44,23 @@
   border-left: 1px solid #ff4656;
 }
 
-.login-left-side-logo {
+.signup-left-side-logo {
   height: 100px;
 }
 
-.login-left-side-logo i {
+.signup-left-side-logo i {
   color: #ff4656;
   margin: 10px;
 }
 
-.login-left-side-howitworks {
+.signup-left-side-howitworks {
   /* background-color: green; */
   height: 60px;
   display: flex;
   align-items: center;
 }
 
-#login-left-side-howitworks-span {
+#signup-left-side-howitworks-span {
   font-size: 20px;
   font-family: "Press Start 2P";
   text-decoration: underline;
@@ -68,13 +68,13 @@
   text-decoration-thickness: 4px;
 }
 
-.login-left-side-howitworks > h2 {
+.signup-left-side-howitworks > h2 {
   font-family: "Press Start 2P";
   font-size: 20px;
   margin-left: 30px;
 }
 
-.login-left-side-user {
+.signup-left-side-user {
   display: flex;
   height: 50px;
   margin-left: 35px;
@@ -82,20 +82,20 @@
   /* background-color: green; */
 }
 
-.login-left-side-user i {
+.signup-left-side-user i {
   margin-right: 10px;
   font-size: 25px;
   color: #ff4656;
 }
 
-.login-left-side-user > p {
+.signup-left-side-user > p {
   font-family: "Press Start 2P";
   font-size: 10px;
   line-height: 15px;
   width: 350px;
 }
 
-.login-left-side-favorite {
+.signup-left-side-favorite {
   display: flex;
   height: 50px;
   margin-left: 35px;
@@ -103,58 +103,58 @@
   /* background-color: green; */
 }
 
-.login-left-side-favorite i {
+.signup-left-side-favorite i {
   margin-right: 10px;
   font-size: 25px;
   color: #ff4656;
 }
 
-.login-left-side-favorite p {
+.signup-left-side-favorite p {
   font-family: "Press Start 2P";
   font-size: 10px;
   line-height: 15px;
   width: 350px;
 }
 
-.login-left-side-review {
+.signup-left-side-review {
   display: flex;
   height: 50px;
   margin-left: 30px;
   align-items: center;
 }
 
-.login-left-side-review i {
+.signup-left-side-review i {
   margin-right: 6px;
   font-size: 25px;
   color: #ff4656;
 }
 
-.login-left-side-review p {
+.signup-left-side-review p {
   font-family: "Press Start 2P";
   font-size: 10px;
   line-height: 15px;
   width: 350px;
 }
 
-.login-right-side {
+.signup-right-side {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.login-right-side-items {
+.signup-right-side-items {
   display: flex;
   flex-direction: column;
 }
 
-.login-right-side-items h2 {
+.signup-right-side-items h2 {
   font-family: "Press Start 2P";
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.login-right-side-items input {
+.signup-right-side-items input {
   text-indent: 15px;
   height: 30px;
   font-family: "Press Start 2P";
@@ -164,11 +164,11 @@
   border: 1px solid #ffff;
 }
 
-.login-right-side-items :nth-child(2) {
+.signup-right-side-items :nth-child(2) {
   margin-top: 5px;
 }
 
-.login-right-side-items button {
+.signup-right-side-items button {
   background-color: #ff4656;
   border: 2px solid #ff4656;
   border-radius: 5px;
@@ -181,68 +181,117 @@
   transition: 0.6s ease-in-out;
 }
 
-.login-right-side-items button:hover {
+.signup-right-side-items button:hover {
   background-color: white;
   color: #ff4656;
+  transform: scale(1.03);
 }
 
-.login-right-side-items p {
+.signup-right-side-items p {
   margin-top: 10px;
   color: white;
   font-family: "Press Start 2P";
 }
 
-.login-right-side-items p a {
+.signup-right-side-items p a {
   text-decoration: none;
   color: lightgray;
   font-family: "Press Start 2P";
   font-size: 8px;
 }
 
-.login-right-side-items-confirmpassword :nth-child(1) {
+.signup-right-side-items-confirmpassword :nth-child(1) {
   margin-right: 5px;
 }
 
+.file {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+.file-input {
+  display: flex;
+}
+
+.file-input p {
+  color: green;
+  display: flex;
+  font-size: 15px;
+  margin-left: 15px;
+}
+
+.file-input label {
+  display: block;
+  position: relative;
+  font-family: "Press Start 2P";
+  font-size: 11px;
+  width: 50%;
+  height: 35px;
+  border-radius: 5px;
+  background: #ff4656;
+  box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out;
+  margin-bottom: 25px;
+}
+
+input:hover + label,
+input:focus + label {
+  transform: scale(1.06);
+}
+
+input:focus + label {
+  outline: 1px solid #000;
+  outline: -webkit-focus-ring-color auto 2px;
+}
+
 @media (max-width: 1350px) {
-  .login-box {
+  .signup-box {
     width: 80%;
   }
 }
 
 @media (max-width: 1180px) {
-  .login-box {
+  .signup-box {
     width: 90%;
   }
 }
 
 @media (max-width: 945px) {
-  .login-box {
+  .signup-box {
     width: 97%;
   }
 }
 
-@media (max-width: 844px) {
-  .login-right-side-items {
+@media (max-width: 874px) {
+  .signup-right-side-items {
     width: 90%;
   }
 }
 
 @media (max-width: 755px) {
-  .login-box {
-    margin-top: 150px;
-    margin-bottom: 70px;
+  .signup-box {
+    margin-top: 230px;
+    margin-bottom: 50px;
     min-height: 60vh;
-    width: 90%;
+    width: 91%;
     display: flex;
     flex-direction: column-reverse;
   }
 
-  .login-left-side-logo {
+  .signup-left-side-logo {
     margin-top: 10px;
     height: 40px;
   }
 
-  .login-left-side {
+  .signup-left-side {
     width: 100%;
     border-top-left-radius: 0px;
     border-bottom-left-radius: 0px;
@@ -250,22 +299,22 @@
     border-top: 1px solid #ff4656;
   }
 
-  .login-right-side {
+  .signup-right-side {
     width: 100%;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
     border-left: none;
   }
 
-  .login-left-side-review {
+  .signup-left-side-review {
     margin-bottom: 40px;
   }
 
-  .login-right-side-items {
+  .signup-right-side-items {
     margin-top: 30px;
   }
 
-  .login-right-side-items p {
+  .signup-right-side-items p {
     margin-bottom: 30px;
   }
 }

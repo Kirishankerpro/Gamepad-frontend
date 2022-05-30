@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import Gamedetails from "./pages/Gamedetails";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games/:id" element={<Gamedetails />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />

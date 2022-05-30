@@ -2,6 +2,9 @@ import "../assets/style/Home.css";
 import "../assets/style/Loading.css";
 import Pass from "../assets/img/pass.jpeg";
 
+// ScrollUpButton
+import { CircleArrow as ScrollUpButton } from "react-scroll-up-button";
+
 // components
 
 import Pages from "../components/Pages";
@@ -98,8 +101,6 @@ const Home = () => {
   };
   //#endregion counterresults
 
-  console.log(data);
-
   return isLoading ? (
     //#region Loading
     <div className="loading">
@@ -135,7 +136,7 @@ const Home = () => {
                 placeholder="Search for a game..."
                 onChange={(event) => {
                   setSearch(event.target.value);
-                  console.log(search);
+                  /* console.log(search); */
                 }}
               />
             </div>
@@ -154,8 +155,7 @@ const Home = () => {
             </div>
           ) : null}
           <p>
-            {" "}
-            Search {data.count} games{" "}
+            Search {data.count} games
             {platFormName ? <span> for {platFormName}</span> : null}
           </p>
         </div>
@@ -266,7 +266,15 @@ const Home = () => {
             );
           })}
         </div>
-
+        <ScrollUpButton
+          style={{
+            background: "#ff4656",
+            borderRadius: 50,
+            width: 30,
+            height: 30,
+            zIndex: 20,
+          }}
+        />
         <Pages
           setPageNumber={setPageNumber}
           data={data}

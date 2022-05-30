@@ -18,6 +18,10 @@
   font-family: "Press Start 2P", cursive;
 }
 
+.gamedetails-cards-left-side {
+  width: 45%;
+}
+
 .gamedetails-cards {
   display: flex;
   background-color: #201f24;
@@ -26,23 +30,329 @@
 .gamedetails-cards-image {
   margin: 0 20px;
 }
+
 .gamedetails-cards-image img {
   object-fit: cover;
-  height: 500px;
+  height: 550px;
   width: 600px;
   border-radius: 15px;
+  box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
+  transition: 0.5s ease-in-out;
 }
 
-.gamedetails-cards-items {
+.gamedetails-cards-image img:hover {
+  transform: scale(1.01);
+}
+
+.gamedetails-cards-right-side {
+  display: flex;
+  width: 55%;
+  flex-direction: column;
+}
+
+.gamedetails-cards-right-side-save-review {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  height: 12vh;
+}
+
+.gamedetails-cards-right-side-save-review-collection {
+  margin-right: 10px;
+  height: 70px;
+  width: 150px;
+  border: 2px solid white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.gamedetails-cards-right-side-save-review-collection:hover {
+  background-color: #ff4656;
+}
+
+.gamedetails-cards-right-side-save-review-collection p {
+  margin-left: 10px;
+  width: 110px;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+.gamedetails-cards-right-side-save-review-collection span {
+  color: green;
+  margin-right: 5px;
+}
+
+.gamedetails-cards-right-side-save-review-review {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 120px;
+  border: 2px solid white;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+
+.gamedetails-cards-right-side-save-review-review:hover {
+  background-color: #ff4656;
+}
+
+.gamedetails-cards-right-side-save-review-review p {
+  margin-left: 10px;
+  width: 90px;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+.gamedetails-cards-items-left-side {
+  display: flex;
+  flex-direction: column;
+  /* background-color: green; */
+  width: 50%;
+}
+
+.gamedetails-cards-items-left-side-platforms h4 {
+  color: gray;
+  font-size: 20px;
+}
+
+.gamedetails-cards-items-left-side-platforms-items {
+  margin-top: 5px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.gamedetails-cards-right-side-right-items-all {
+  /* background-color: red; */
+  width: 50%;
+}
+
+.gamedetails-cards-right-side-right-items {
+  display: flex;
+}
+
+.gamedetails-cards-right-side-right-items-description {
+  max-height: 40vh;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 13;
+  -webkit-box-orient: vertical;
+}
+
+.gamedetails-cards-right-side-right-items-description h4 {
+  font-size: 20px;
+  color: gray;
+  margin-top: 10px;
+}
+
+.gamedetails-cards-right-side-right-items-description p {
+  width: 99%;
+  margin-top: 5px;
+}
+
+.gamedetails-cards-items-left-side-released-date h4 {
+  color: gray;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.gamedetails-cards-items-left-side-released-date p {
+  margin-top: 5px;
+}
+
+.gamedetails-cards-items-left-side-publisher h4 {
+  color: gray;
+  margin-top: 15px;
+  font-size: 20px;
+}
+
+.gamedetails-cards-items-left-side-publisher p {
+  margin-top: 5px;
+}
+
+.gamedetails-cards-right-side-right-items-all-genre h4 {
+  color: gray;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.gamedetails-cards-right-side-right-items-developpers h4 {
+  color: gray;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.gamedetails-cards-right-side-right-items-stores h4 {
+  color: gray;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.gamedetails-games-match {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.gamedetails-games-match-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 98%;
+  min-height: 10vh;
+
+  /* background-color: rebeccapurple; */
+}
+
+.gamedetails-games-match-items h2 {
+  font-family: "Press Start 2P";
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.gamedetails-games-match-items span {
+  text-decoration: underline;
+  text-decoration-color: #ff4656;
+  text-decoration-thickness: 3px;
+  font-family: "Press Start 2P";
+  font-size: 15px;
+}
+
+.gamedetails-similar-games {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.gamedetails-similar-games::-webkit-scrollbar {
+  display: none;
+}
+
+.gamedetails-similar-games img {
+  position: relative;
+  object-fit: cover;
+  height: 350px;
+  width: 300px;
   margin-top: 30px;
+  cursor: pointer;
+  border-radius: 7px;
+  box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 5px 30px 4px rgba(0, 0, 0, 0.75);
+  transition: 0.5s ease-in-out;
 }
 
-.gamedetails-cards-items h2 {
-  font-size: 50px;
+.gamedetails-similar-games-images {
+  transition: 0.5s ease-in-out;
 }
 
-.gamedetails-cards-items p {
-  margin-top: 40px;
+.gamedetails-similar-games-images:hover {
+  transform: scale(1.05);
 }
 
-/* media queries */
+.gamedetails-similar-games-title {
+  position: relative;
+  max-width: 290px;
+  margin: 0 3px;
+  z-index: 10;
+  bottom: 25px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.gamedetails-similar-games-images a {
+  text-decoration: none;
+  color: #ff4656;
+  position: relative;
+  z-index: 10;
+}
+
+.gamedetails-similar-games-images a p {
+  font-size: 15px;
+  font-family: "Press Start 2P";
+}
+
+.gamedetails-similar-games-images:first-child {
+  margin-left: 8px;
+}
+
+.gamedetails-similar-games-images:not(:last-child) {
+  margin-right: 30px;
+}
+
+.gamedetails-similar-games-images:last-child {
+  margin-right: 20px;
+}
+
+.gamedetails-games-review {
+  width: 100%;
+  min-height: 10vh;
+}
+
+.gamedetails-games-review-title {
+  display: flex;
+  height: 5vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.gamedetails-games-review-title h2 {
+  font-family: "Press Start 2P";
+  font-size: 20px;
+  text-decoration: underline;
+  text-decoration-color: #ff4656;
+  text-decoration-thickness: 3px;
+}
+
+@media (min-width: 1765px) {
+  .gamedetails-cards-image img {
+    height: 670px;
+    width: 800px;
+  }
+  .gamedetails-cards-right-side-right-items-description {
+    max-height: 40vh;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 19;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media (max-width: 555px) {
+  .gamedetails-cards {
+    display: flex;
+    flex-direction: column;
+    background-color: #201f24;
+  }
+
+  .gamedetails-cards-image img {
+    object-fit: cover;
+    height: 350px;
+    width: 460px;
+    border-radius: 15px;
+  }
+
+  .gamedetails-cards-right-side {
+    margin-top: 10px;
+    margin-left: 20px;
+    width: 95%;
+  }
+}

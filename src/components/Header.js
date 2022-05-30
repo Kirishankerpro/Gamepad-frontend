@@ -13,7 +13,9 @@ const Header = () => {
         </div>
         <div className="header-items-buttons">
           <button id="collection-home-button"> My Collection </button>
-          <button id="collection-login-button"> Login </button>
+          <Link to="/login">
+            <button id="collection-login-button"> Login </button>
+          </Link>
         </div>
         {/* burger */}
         <div className="nav-burger">
@@ -32,7 +34,9 @@ const Header = () => {
                   My Collection
                 </button>
 
-                <button id="collection-login-button-mobile">Login</button>
+                <Link to="/login">
+                  <button id="collection-login-button-mobile">Login</button>
+                </Link>
               </div>
 
               <a href="https://www.google.fr/" className="modal__close">
