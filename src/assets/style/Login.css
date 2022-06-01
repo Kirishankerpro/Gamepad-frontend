@@ -162,6 +162,11 @@
   border-radius: 5px;
   margin-bottom: 15px;
   border: 1px solid #ffff;
+  transition: 0.4s ease-in-out;
+}
+
+.login-right-side-items input:hover {
+  transform: scale(1.02);
 }
 
 .login-right-side-items :nth-child(2) {
@@ -184,6 +189,7 @@
 .login-right-side-items button:hover {
   background-color: white;
   color: #ff4656;
+  transform: scale(1.04);
 }
 
 .login-right-side-items p {
@@ -201,6 +207,33 @@
 
 .login-right-side-items-confirmpassword :nth-child(1) {
   margin-right: 5px;
+}
+
+.login-error {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.login-error p {
+  width: 70%;
+  text-align: center;
+  font-size: 10px;
+  color: red;
+}
+
+.login-done {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.login-done p {
+  font-size: 10px;
+  color: green;
 }
 
 @media (max-width: 1350px) {

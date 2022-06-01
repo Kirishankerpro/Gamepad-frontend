@@ -170,7 +170,10 @@ const Gamedetails = () => {
               <div className="gamedetails-similar-games">
                 {similarGames.results.map((item, index) => {
                   return (
-                    <div className="gamedetails-similar-games-images">
+                    <div
+                      className="gamedetails-similar-games-images"
+                      key={index}
+                    >
                       <Link to={`/games/${similarGames.results[index].id}`}>
                         <img
                           src={item.background_image}

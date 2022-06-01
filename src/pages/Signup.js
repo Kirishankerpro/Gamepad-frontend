@@ -1,11 +1,77 @@
 import "../assets/style/Signup.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Signup = () => {
+  // input states
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [file, setfile] = useState(null);
+  // error state
+  const [error, setError] = useState("");
+  // done State
+  const [done, setDone] = useState("");
+  // state reponse signup
+  const [data, setDate] = useState([]);
 
-  console.log(file);
+  useEffect(() => {
+    const validSignUp = async () => {
+      if (done) {
+        try {
+          const response = await axios.post(
+            "https://gamepad-users.herokuapp.com/user/signup",
+            {
+              username: username,
+              email: email,
+              password: password,
+            }
+          );
+          setDate(response.data);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }
+    };
+    validSignUp();
+  }, [done, email, password, username]);
+
+  if (data) {
+    console.log(data);
+  }
+
+  const validSignUpFields = () => {
+    setDone();
+    setError();
+    if (username && email && password && confirmPassword) {
+      if (file) {
+        if (password === confirmPassword) {
+          if (password.length > 5) {
+            setDone("signup request sended");
+          } else {
+            setError("Your password should be longer than 5 letters");
+          }
+        } else {
+          setError("Your passwords are no matching");
+        }
+      } else {
+        setError("You should choose an image");
+      }
+    } else {
+      setError("Please complete all fields");
+    }
+  };
+
+  if (error) {
+    console.log(error);
+  }
+
+  if (password) {
+    console.log(password.length);
+  }
+
   return (
     <div className="signup">
       <div className="signup-box">
@@ -37,11 +103,47 @@ const Signup = () => {
         <div className="signup-right-side">
           <div className="signup-right-side-items">
             <h2> Signup </h2>
-            <input type="text" placeholder="Username..." />
-            <input type="text" placeholder="Email..." />
+            <input
+              type="text"
+              placeholder="Username..."
+              onChange={(event) => {
+                setUsername(event.target.value);
+                if (username) {
+                  console.log(username);
+                }
+              }}
+            />
+            <input
+              type="Email"
+              placeholder="Email..."
+              onChange={(event) => {
+                setEmail(event.target.value);
+                if (email) {
+                  console.log(email);
+                }
+              }}
+            />
             <div className="signup-right-side-items-confirmpassword">
-              <input type="text" placeholder="Password..." />
-              <input type="text" placeholder="Confirm Password..." />
+              <input
+                type="password"
+                placeholder="Password..."
+                onChange={(event) => {
+                  setPassword(event.target.value);
+                  if (password) {
+                    console.log(password);
+                  }
+                }}
+              />
+              <input
+                type="password"
+                placeholder="Confirm Password..."
+                onChange={(event) => {
+                  setConfirmPassword(event.target.value);
+                  if (confirmPassword) {
+                    console.log(confirmPassword);
+                  }
+                }}
+              />
             </div>
 
             <div className="file-input">
@@ -51,13 +153,33 @@ const Signup = () => {
                 className="file"
                 onChange={(event) => {
                   setfile(event.target.files[0]);
+                  if (file) {
+                    console.log(file);
+                  }
                 }}
               />
               <label htmlFor="file">Add a photo</label>
               {file ? <p> {file.name} </p> : null}
             </div>
 
-            <button> Register </button>
+            {error ? (
+              <div className="signup-error">
+                <p> {error} </p>
+              </div>
+            ) : null}
+            {done ? (
+              <div className="signup-done">
+                <p> {done} </p>
+              </div>
+            ) : null}
+
+            <button
+              onClick={() => {
+                validSignUpFields();
+              }}
+            >
+              Register
+            </button>
             <p>
               <Link to="/login">
                 You already have an account ? Click here to Login
