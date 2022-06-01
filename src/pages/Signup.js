@@ -1,9 +1,10 @@
 import "../assets/style/Signup.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Signup = () => {
+  const navigate = useNavigate();
   // input states
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -15,32 +16,36 @@ const Signup = () => {
   // done State
   const [done, setDone] = useState("");
   // state reponse signup
-  const [data, setDate] = useState([]);
+  const [data, setData] = useState();
+  // state token
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     const validSignUp = async () => {
       if (done) {
         try {
           const response = await axios.post(
-            "https://gamepad-users.herokuapp.com/user/signup",
+            "http://localhost:4000/user/signup",
             {
               username: username,
               email: email,
               password: password,
             }
           );
-          setDate(response.data);
+          setData(response.data);
+          if (response.data) {
+            setToken(response.data.token);
+          }
+          if (response.data.token) {
+            navigate("/login");
+          }
         } catch (error) {
           console.log(error.message);
         }
       }
     };
     validSignUp();
-  }, [done, email, password, username]);
-
-  if (data) {
-    console.log(data);
-  }
+  }, [done, email, password, username, token, navigate]);
 
   const validSignUpFields = () => {
     setDone();
@@ -63,14 +68,22 @@ const Signup = () => {
       setError("Please complete all fields");
     }
   };
-
+  /* 
   if (error) {
     console.log(error);
   }
 
   if (password) {
     console.log(password.length);
+  } */
+
+  if (data) {
+    console.log(data);
   }
+
+  /*   if (token) {
+    console.log(token);
+  }  */
 
   return (
     <div className="signup">
@@ -108,9 +121,9 @@ const Signup = () => {
               placeholder="Username..."
               onChange={(event) => {
                 setUsername(event.target.value);
-                if (username) {
+                /*                 if (username) {
                   console.log(username);
-                }
+                } */
               }}
             />
             <input
@@ -118,9 +131,9 @@ const Signup = () => {
               placeholder="Email..."
               onChange={(event) => {
                 setEmail(event.target.value);
-                if (email) {
+                /*                 if (email) {
                   console.log(email);
-                }
+                } */
               }}
             />
             <div className="signup-right-side-items-confirmpassword">
@@ -129,9 +142,9 @@ const Signup = () => {
                 placeholder="Password..."
                 onChange={(event) => {
                   setPassword(event.target.value);
-                  if (password) {
+                  /*                   if (password) {
                     console.log(password);
-                  }
+                  } */
                 }}
               />
               <input
@@ -139,9 +152,9 @@ const Signup = () => {
                 placeholder="Confirm Password..."
                 onChange={(event) => {
                   setConfirmPassword(event.target.value);
-                  if (confirmPassword) {
+                  /*                   if (confirmPassword) {
                     console.log(confirmPassword);
-                  }
+                  } */
                 }}
               />
             </div>
@@ -153,9 +166,9 @@ const Signup = () => {
                 className="file"
                 onChange={(event) => {
                   setfile(event.target.files[0]);
-                  if (file) {
+                  /*                   if (file) {
                     console.log(file);
-                  }
+                  } */
                 }}
               />
               <label htmlFor="file">Add a photo</label>

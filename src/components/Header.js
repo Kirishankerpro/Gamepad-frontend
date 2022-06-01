@@ -1,5 +1,6 @@
 import "../assets/style/Header.css";
 import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -13,9 +14,9 @@ const Header = () => {
         </div>
         <div className="header-items-buttons">
           <button id="collection-home-button"> My Collection </button>
-          <Link to="/login">
-            <button id="collection-login-button"> Login </button>
-          </Link>
+          <NavLink to="/login" activeclassname="active">
+            <button id="collection-login-button">Login</button>
+          </NavLink>
         </div>
         {/* burger */}
         <div className="nav-burger">

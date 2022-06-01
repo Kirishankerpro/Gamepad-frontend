@@ -77,11 +77,18 @@ const Gamedetails = () => {
           <div className="gamedetails-cards-left-side">
             <div className="gamedetails-cards-image">
               <a href={data.background_image} target="_blank" rel="noreferrer">
-                <img
-                  src={data.background_image}
-                  alt={data.name}
-                  title={data.name}
-                ></img>
+                {data.background_image ? (
+                  <img
+                    src={data.background_image}
+                    alt={data.name}
+                    title={data.name}
+                  ></img>
+                ) : (
+                  <img
+                    src={require("../assets/img/tesla.jpeg")}
+                    alt="unknown"
+                  />
+                )}
               </a>
             </div>
           </div>
@@ -151,6 +158,72 @@ const Gamedetails = () => {
             </div>
           </div>
         </div>
+
+        {data.ratings.length > 1 ? (
+          <div className="gamedetails-games-review">
+            <h2> Reviews for {data.name} </h2>
+            {data.ratings.map((item, index) => {
+              const percent = item.percent;
+              return (
+                <div key={index} className="gamedetails-games-review-items">
+                  {item.title === "exceptional" ? (
+                    <div className="gamedetails-games-review-items-all">
+                      <div
+                        className="gamedetails-games-review-exceptional"
+                        style={{
+                          width: `${percent}%`,
+                        }}
+                      >
+                        <span> {item.percent}%</span>
+                      </div>
+                      <p>Exceptional ({item.count})</p>
+                    </div>
+                  ) : null}
+                  {item.title === "recommended" ? (
+                    <div className="gamedetails-games-review-items-all">
+                      <div
+                        className="gamedetails-games-review-recommended"
+                        style={{
+                          width: `${percent}%`,
+                        }}
+                      >
+                        <span> {item.percent}%</span>
+                      </div>
+                      <p>Recommended ({item.count})</p>
+                    </div>
+                  ) : null}
+                  {item.title === "meh" ? (
+                    <div className="gamedetails-games-review-items-all">
+                      <div
+                        className="gamedetails-games-review-meh"
+                        style={{
+                          width: `${percent}%`,
+                        }}
+                      >
+                        <span> {item.percent}%</span>
+                      </div>
+                      <p> meh ({item.count}) </p>
+                    </div>
+                  ) : null}
+                  {item.title === "skip" ? (
+                    <div className="gamedetails-games-review-items-all">
+                      <div
+                        className="gamedetails-games-review-skip"
+                        style={{
+                          width: `${percent}%`,
+                        }}
+                      >
+                        <span>{item.percent}%</span>
+                      </div>
+                      <p>Skip ({item.count})</p>
+                    </div>
+                  ) : null}
+                </div>
+              );
+            })}
+          </div>
+        ) : null}
+
         <div className="gamedetails-games-match">
           {similarGames.count > 0 ? (
             <div className="gamedetails-games-match-items">
@@ -175,11 +248,19 @@ const Gamedetails = () => {
                       key={index}
                     >
                       <Link to={`/games/${similarGames.results[index].id}`}>
-                        <img
-                          src={item.background_image}
-                          alt={item.name}
-                          title={item.name}
-                        />
+                        {item.background_image ? (
+                          <img
+                            src={item.background_image}
+                            alt={item.name}
+                            title={item.name}
+                          />
+                        ) : (
+                          <img
+                            src={require("../assets/img/tesla.jpeg")}
+                            alt="unknown"
+                          />
+                        )}
+
                         <div className="gamedetails-similar-games-title">
                           <p> {item.name}</p>
                         </div>
@@ -190,11 +271,6 @@ const Gamedetails = () => {
               </div>
             </div>
           ) : null}
-        </div>
-        <div className="gamedetails-games-review">
-          <div className="gamedetails-games-review-title">
-            <h2> Review/s </h2>
-          </div>
         </div>
       </div>
     </div>

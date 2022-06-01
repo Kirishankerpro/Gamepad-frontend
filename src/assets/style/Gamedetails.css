@@ -302,11 +302,6 @@
   margin-right: 20px;
 }
 
-.gamedetails-games-review {
-  width: 100%;
-  min-height: 10vh;
-}
-
 .gamedetails-games-review-title {
   display: flex;
   height: 5vh;
@@ -320,6 +315,90 @@
   text-decoration: underline;
   text-decoration-color: #ff4656;
   text-decoration-thickness: 3px;
+}
+
+/* review */
+
+.gamedetails-games-review {
+  min-height: 30vh;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gamedetails-games-review h2 {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  font-family: "Press Start 2P";
+  font-size: 15px;
+  text-decoration: underline;
+  text-decoration-color: #ff4656;
+  text-decoration-thickness: 4px;
+}
+
+.gamedetails-games-review-items {
+  margin-top: 10px;
+  width: 95%;
+}
+
+.gamedetails-games-review-items-all {
+  display: flex;
+  align-items: center;
+}
+
+.gamedetails-games-review-items-all p {
+  margin-left: 5px;
+  font-family: "Press Start 2P";
+  font-size: 10px;
+}
+
+.gamedetails-games-review-items-all span {
+  margin-left: 4px;
+}
+
+.gamedetails-games-review-exceptional {
+  background-color: green;
+  height: 30px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gamedetails-games-review-recommended {
+  background-color: #05f3dd;
+  height: 30px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gamedetails-games-review-meh {
+  background-color: #a4f305;
+  height: 30px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.gamedetails-games-review-skip {
+  background-color: #ff0027;
+  height: 30px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 @media (min-width: 1765px) {

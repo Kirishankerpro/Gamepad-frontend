@@ -1,9 +1,11 @@
 import "../assets/style/Login.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import Cookies from "js-cookie";
 
 const Login = () => {
+  const navigate = useNavigate();
   // states for login
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -15,7 +17,7 @@ const Login = () => {
   // data state
   const [data, setData] = useState();
   // token state
-  const [token, setToken] = useState();
+  /* const [token, setToken] = useState(); */
 
   const validLoginFields = () => {
     setError();
@@ -35,24 +37,26 @@ const Login = () => {
     if (done) {
       try {
         const response = await axios.post(
-          "https://gamepad-users.herokuapp.com/user/login",
+          "http://localhost:4000/user/login",
+          /* "https://gamepad-users.herokuapp.com/user/login", */
           {
             email: email,
             password: password,
           }
         );
+        if (response.data.token) {
+          Cookies.set("userTokenGamepad", response.data.token, { expires: 10 });
+          navigate("/");
+        }
         setData(response.data);
-        setToken(response.data.token);
+        /* setToken(response.data.token); */
       } catch (error) {
         console.log(error.message);
       }
     }
   };
 
-  if (data) {
-    console.log(data);
-    console.log(token);
-  }
+  console.log(data);
 
   return (
     <div className="login">
@@ -63,7 +67,7 @@ const Login = () => {
           </div>
           <div className="login-left-side-howitworks">
             <h2>
-              <span id="login-left-side-howitworks-span">How it Works</span> ?{" "}
+              <span id="login-left-side-howitworks-span">How it Works</span> ?
             </h2>
           </div>
           <div className="login-left-side-user">

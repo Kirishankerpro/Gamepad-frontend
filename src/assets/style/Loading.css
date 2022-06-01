@@ -1,5 +1,5 @@
 .loading {
-  min-height: 79vh;
+  height: 79vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
