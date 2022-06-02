@@ -5,6 +5,7 @@ import Cookies from "js-cookie";
 const Header = ({ token }) => {
   const deleteToken = () => {
     Cookies.remove("userTokenGamepad");
+    Cookies.remove("userName");
   };
   const navigate = useNavigate();
 

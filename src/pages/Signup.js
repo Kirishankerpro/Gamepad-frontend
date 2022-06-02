@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-const Signup = () => {
+const Signup = ({ token }) => {
   const navigate = useNavigate();
   // input states
   const [username, setUsername] = useState("");
@@ -59,7 +59,23 @@ const Signup = () => {
     }
   };
 
-  return (
+  const redirection = () => {
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
+
+  return token ? (
+    <div className="signup-authenticated">
+      <img src="https://media1.giphy.com/media/b7lp44pNiRqsU/giphy.gif?cid=ecf05e47icju405n2gn0ze2dm90lij1cbhbojjz9jv4o5k2p&rid=giphy.gif&ct=g" />
+      <p> Oops You already have an account ! </p>
+      <p> You will be redirected to the home page with love ❤️ </p>
+      <div className="heart-loader">
+        <div></div>
+      </div>
+      {redirection()}
+    </div>
+  ) : (
     <div className="signup">
       <div className="signup-box">
         <div className="signup-left-side">
@@ -96,8 +112,8 @@ const Signup = () => {
               onChange={(event) => {
                 setUsername(event.target.value);
                 /*                 if (username) {
-                  console.log(username);
-                } */
+              console.log(username);
+            } */
               }}
             />
             <input
@@ -106,8 +122,8 @@ const Signup = () => {
               onChange={(event) => {
                 setEmail(event.target.value);
                 /*                 if (email) {
-                  console.log(email);
-                } */
+              console.log(email);
+            } */
               }}
             />
             <div className="signup-right-side-items-confirmpassword">
@@ -117,8 +133,8 @@ const Signup = () => {
                 onChange={(event) => {
                   setPassword(event.target.value);
                   /*                   if (password) {
-                    console.log(password);
-                  } */
+                console.log(password);
+              } */
                 }}
               />
               <input
@@ -127,8 +143,8 @@ const Signup = () => {
                 onChange={(event) => {
                   setConfirmPassword(event.target.value);
                   /*                   if (confirmPassword) {
-                    console.log(confirmPassword);
-                  } */
+                console.log(confirmPassword);
+              } */
                 }}
               />
             </div>
@@ -141,8 +157,8 @@ const Signup = () => {
                 onChange={(event) => {
                   setfile(event.target.files[0]);
                   /*                   if (file) {
-                    console.log(file);
-                  } */
+                console.log(file);
+              } */
                 }}
               />
               <label htmlFor="file">Add a photo</label>

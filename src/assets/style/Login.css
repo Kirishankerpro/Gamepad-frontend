@@ -163,6 +163,7 @@
   margin-bottom: 15px;
   border: 1px solid #ffff;
   transition: 0.4s ease-in-out;
+  outline: none;
 }
 
 .login-right-side-items input:hover {
@@ -222,6 +223,27 @@
   text-align: center;
   font-size: 10px;
   color: red;
+}
+
+.login-authenticated {
+  background-color: #201f24;
+  min-height: 79vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.login-authenticated img {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+}
+
+.login-authenticated p {
+  margin-top: 20px;
+  font-family: "Press Start 2P";
 }
 
 @media (max-width: 1350px) {

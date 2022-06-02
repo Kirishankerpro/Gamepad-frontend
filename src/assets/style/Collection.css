@@ -12,3 +12,16 @@
   text-decoration: underline;
   text-decoration-color: red;
 }
+
+.collection-non-authenticated {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.collection-non-authenticated p {
+  font-family: "Press Start 2P";
+  margin-top: 25px;
+  font-size: 15px;
+}

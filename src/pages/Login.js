@@ -4,7 +4,8 @@ import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Login = () => {
+const Login = ({ token, setToken, setUsername }) => {
+  console.log(token);
   const navigate = useNavigate();
   // states for login
   const [email, setEmail] = useState("");
@@ -17,6 +18,12 @@ const Login = () => {
   // data state
   /*   const [data, setData] = useState(); */
   // token state
+
+  const redirection = () => {
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  };
 
   const validLogin = async () => {
     setError();
@@ -35,12 +42,12 @@ const Login = () => {
             Cookies.set("userTokenGamepad", response.data.token, {
               expires: 10,
             });
-          }
-          if (response.data.token) {
-            setTimeout(() => {
-              navigate("/collection");
-              window.location.reload();
-            }, 1000);
+            Cookies.set("userName", response.data.account.username, {
+              expires: 10,
+            });
+            setToken(response.data.token);
+            navigate("/");
+            window.location.reload(true);
           }
         } catch (error) {
           if (error) {
@@ -55,7 +62,17 @@ const Login = () => {
     }
   };
 
-  return (
+  return token ? (
+    <div className="login-authenticated">
+      <img src="https://media1.giphy.com/media/b7lp44pNiRqsU/giphy.gif?cid=ecf05e47icju405n2gn0ze2dm90lij1cbhbojjz9jv4o5k2p&rid=giphy.gif&ct=g" />
+      <p> Oops Already connected ! </p>
+      <p> You will be redirected to the home Page with love ❤️</p>
+      <div className="heart-loader">
+        <div></div>
+      </div>
+      {redirection()}
+    </div>
+  ) : (
     <div className="login">
       <div className="login-box">
         <div className="login-left-side">

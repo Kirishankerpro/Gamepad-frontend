@@ -162,6 +162,7 @@
   margin-bottom: 15px;
   border: 1px solid #ffff;
   transition: 0.4s ease-in-out;
+  outline: none;
 }
 
 .signup-right-side-items input:hover {
@@ -268,6 +269,27 @@ input:focus + label {
   text-align: center;
   font-size: 10px;
   color: red;
+}
+
+.signup-authenticated {
+  background-color: #201f24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 79vh;
+  color: white;
+}
+
+.signup-authenticated p {
+  margin-top: 10px;
+  font-family: "Press Start 2P";
+}
+
+.signup-authenticated img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
 }
 
 @media (max-width: 1350px) {

@@ -16,25 +16,31 @@ import Collection from "./pages/Collection";
 function App() {
   // state cookie
   const [token, setToken] = useState(Cookies.get("userTokenGamepad") || null);
-  const setUser = (token) => {
-    if (token !== null) {
-      Cookies.set("userTokenGamepad", token, { expires: 10 });
-    } else {
-      Cookies.remove("userTokenGamepad");
-    }
-    setToken(token);
-  };
+  const [username, setUsername] = useState(Cookies.get("userName") || null);
+  console.log(username);
 
   return (
     <div className="app">
       <Router>
-        <Header token={token} />
+        <Header token={token} setToken={setToken} />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games/:id" element={<Gamedetails />} />
-          <Route path="/login" element={<Login setuser={setUser} />} />
-          <Route path="/signup" element={<Signup />} />
-          {token ? <Route path="/collection" element={<Collection />} /> : null}
+          <Route
+            path="/login"
+            element={
+              <Login
+                token={token}
+                setToken={setToken}
+                setUsername={setUsername}
+              />
+            }
+          />
+          <Route path="/signup" element={<Signup token={token} />} />
+          <Route
+            path="/collection"
+            element={<Collection token={token} username={username} />}
+          />
           <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
