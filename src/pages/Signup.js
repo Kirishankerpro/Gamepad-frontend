@@ -1,6 +1,6 @@
 import "../assets/style/Signup.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 const Signup = () => {
@@ -14,47 +14,37 @@ const Signup = () => {
   // error state
   const [error, setError] = useState("");
   // done State
-  const [done, setDone] = useState("");
+  /*   const [done, setDone] = useState(""); */
   // state reponse signup
-  const [data, setData] = useState();
+  /*   const [data, setData] = useState();
   // state token
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(""); */
 
-  useEffect(() => {
-    const validSignUp = async () => {
-      if (done) {
-        try {
-          const response = await axios.post(
-            "http://localhost:4000/user/signup",
-            {
-              username: username,
-              email: email,
-              password: password,
-            }
-          );
-          setData(response.data);
-          if (response.data) {
-            setToken(response.data.token);
-          }
-          if (response.data.token) {
-            navigate("/login");
-          }
-        } catch (error) {
-          console.log(error.message);
-        }
-      }
-    };
-    validSignUp();
-  }, [done, email, password, username, token, navigate]);
-
-  const validSignUpFields = () => {
-    setDone();
+  const validSignUpFields = async () => {
+    /* setDone(); */
     setError();
     if (username && email && password && confirmPassword) {
       if (file) {
         if (password === confirmPassword) {
           if (password.length > 5) {
-            setDone("signup request sended");
+            try {
+              const response = await axios.post(
+                "http://localhost:4000/user/signup",
+                {
+                  username: username,
+                  email: email,
+                  password: password,
+                }
+              );
+              if (response.data.token) {
+                navigate("/login");
+              }
+              /* setDone("sucess"); */
+            } catch (error) {
+              if (error) {
+                setError(error.response.data.errorMessage);
+              }
+            }
           } else {
             setError("Your password should be longer than 5 letters");
           }
@@ -62,28 +52,12 @@ const Signup = () => {
           setError("Your passwords are no matching");
         }
       } else {
-        setError("You should choose an image");
+        setError("Please choose an image");
       }
     } else {
       setError("Please complete all fields");
     }
   };
-  /* 
-  if (error) {
-    console.log(error);
-  }
-
-  if (password) {
-    console.log(password.length);
-  } */
-
-  if (data) {
-    console.log(data);
-  }
-
-  /*   if (token) {
-    console.log(token);
-  }  */
 
   return (
     <div className="signup">
@@ -180,19 +154,8 @@ const Signup = () => {
                 <p> {error} </p>
               </div>
             ) : null}
-            {done ? (
-              <div className="signup-done">
-                <p> {done} </p>
-              </div>
-            ) : null}
 
-            <button
-              onClick={() => {
-                validSignUpFields();
-              }}
-            >
-              Register
-            </button>
+            <button onClick={validSignUpFields}>Register</button>
             <p>
               <Link to="/login">
                 You already have an account ? Click here to Login

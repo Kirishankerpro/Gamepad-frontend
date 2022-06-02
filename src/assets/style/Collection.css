@@ -1,0 +1,14 @@
+.collection {
+  min-height: 79vh;
+  background-color: #201f24;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.collection-items h3 {
+  margin-top: 20px;
+  font-family: "Press Start 2P";
+  text-decoration: underline;
+  text-decoration-color: red;
+}

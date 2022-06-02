@@ -13,18 +13,40 @@ const Login = () => {
   // error state
   const [error, setError] = useState("");
   // done state
-  const [done, setDone] = useState("");
+  /*   const [done, setDone] = useState(""); */
   // data state
-  const [data, setData] = useState();
+  /*   const [data, setData] = useState(); */
   // token state
-  /* const [token, setToken] = useState(); */
 
-  const validLoginFields = () => {
+  const validLogin = async () => {
     setError();
-    setDone();
     if (email) {
       if (password) {
-        setDone("Login request sended");
+        try {
+          const response = await axios.post(
+            "http://localhost:4000/user/login",
+            /* "https://gamepad-users.herokuapp.com/user/login", */
+            {
+              email: email,
+              password: password,
+            }
+          );
+          if (response.data.token) {
+            Cookies.set("userTokenGamepad", response.data.token, {
+              expires: 10,
+            });
+          }
+          if (response.data.token) {
+            setTimeout(() => {
+              navigate("/collection");
+              window.location.reload();
+            }, 1000);
+          }
+        } catch (error) {
+          if (error) {
+            setError(error.response.data.errorMessage);
+          }
+        }
       } else {
         setError("Please complete password");
       }
@@ -32,31 +54,6 @@ const Login = () => {
       setError("Please complete email");
     }
   };
-
-  const validLogin = async () => {
-    if (done) {
-      try {
-        const response = await axios.post(
-          "http://localhost:4000/user/login",
-          /* "https://gamepad-users.herokuapp.com/user/login", */
-          {
-            email: email,
-            password: password,
-          }
-        );
-        if (response.data.token) {
-          Cookies.set("userTokenGamepad", response.data.token, { expires: 10 });
-          navigate("/");
-        }
-        setData(response.data);
-        /* setToken(response.data.token); */
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
-  };
-
-  console.log(data);
 
   return (
     <div className="login">
@@ -95,9 +92,6 @@ const Login = () => {
               placeholder="Email..."
               onChange={(event) => {
                 setEmail(event.target.value);
-                if (email) {
-                  console.log(email);
-                }
               }}
             />
             <input
@@ -105,9 +99,6 @@ const Login = () => {
               placeholder="Password..."
               onChange={(event) => {
                 setPassword(event.target.value);
-                if (password) {
-                  console.log(password);
-                }
               }}
             />
             {error ? (
@@ -115,14 +106,8 @@ const Login = () => {
                 <p> {error} </p>
               </div>
             ) : null}
-            {done ? (
-              <div className="login-done">
-                <p> {done} </p>
-              </div>
-            ) : null}
             <button
               onClick={() => {
-                validLoginFields();
                 validLogin();
               }}
             >

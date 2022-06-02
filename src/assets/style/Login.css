@@ -224,18 +224,6 @@
   color: red;
 }
 
-.login-done {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.login-done p {
-  font-size: 10px;
-  color: green;
-}
-
 @media (max-width: 1350px) {
   .login-box {
     width: 80%;

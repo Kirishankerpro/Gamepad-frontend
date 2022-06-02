@@ -1,8 +1,13 @@
 import "../assets/style/Header.css";
-import { Link } from "react-router-dom";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
 
-const Header = () => {
+const Header = ({ token }) => {
+  const deleteToken = () => {
+    Cookies.remove("userTokenGamepad");
+  };
+  const navigate = useNavigate();
+
   return (
     <div className="header">
       <div className="header-items">
@@ -13,10 +18,36 @@ const Header = () => {
           </Link>
         </div>
         <div className="header-items-buttons">
-          <button id="collection-home-button"> My Collection </button>
-          <NavLink to="/login" activeclassname="active">
-            <button id="collection-login-button">Login</button>
-          </NavLink>
+          {token === null ? (
+            <button
+              id="collection-home-button"
+              onClick={() => {
+                alert("You have to login to see collection section");
+              }}
+            >
+              My Collection
+            </button>
+          ) : (
+            <Link to="/collection">
+              <button id="collection-home-button"> My collection </button>
+            </Link>
+          )}
+          {token === null ? (
+            <NavLink to="/login" activeclassname="active">
+              <button id="collection-login-button">Login</button>
+            </NavLink>
+          ) : (
+            <button
+              id="collection-login-button"
+              onClick={() => {
+                deleteToken();
+                navigate("/");
+                window.location.reload(true);
+              }}
+            >
+              logout
+            </button>
+          )}
         </div>
         {/* burger */}
         <div className="nav-burger">

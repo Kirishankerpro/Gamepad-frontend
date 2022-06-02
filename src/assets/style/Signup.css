@@ -7,7 +7,6 @@
   background-color: #201f24;
   color: white;
 }
-
 .signup-box {
   width: 70%;
   height: 60vh;
@@ -259,29 +258,16 @@ input:focus + label {
 
 .signup-error {
   display: flex;
-
   justify-content: center;
   align-items: center;
   margin-bottom: 15px;
 }
 
 .signup-error p {
-  width: 70%;
+  width: 80%;
   text-align: center;
   font-size: 10px;
   color: red;
-}
-
-.signup-done {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
-.signup-done p {
-  font-size: 10px;
-  color: green;
 }
 
 @media (max-width: 1350px) {
