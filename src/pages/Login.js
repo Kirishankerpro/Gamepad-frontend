@@ -64,7 +64,10 @@ const Login = ({ token, setToken, setUsername }) => {
 
   return token ? (
     <div className="login-authenticated">
-      <img src="https://media1.giphy.com/media/b7lp44pNiRqsU/giphy.gif?cid=ecf05e47icju405n2gn0ze2dm90lij1cbhbojjz9jv4o5k2p&rid=giphy.gif&ct=g" />
+      <img
+        src="https://media1.giphy.com/media/b7lp44pNiRqsU/giphy.gif?cid=ecf05e47icju405n2gn0ze2dm90lij1cbhbojjz9jv4o5k2p&rid=giphy.gif&ct=g"
+        alt="loading"
+      />
       <p> Oops Already connected ! </p>
       <p> You will be redirected to the home Page with love ❤️</p>
       <div className="heart-loader">

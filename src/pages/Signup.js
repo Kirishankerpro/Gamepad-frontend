@@ -67,7 +67,10 @@ const Signup = ({ token }) => {
 
   return token ? (
     <div className="signup-authenticated">
-      <img src="https://media1.giphy.com/media/b7lp44pNiRqsU/giphy.gif?cid=ecf05e47icju405n2gn0ze2dm90lij1cbhbojjz9jv4o5k2p&rid=giphy.gif&ct=g" />
+      <img
+        src="https://media1.giphy.com/media/b7lp44pNiRqsU/giphy.gif?cid=ecf05e47icju405n2gn0ze2dm90lij1cbhbojjz9jv4o5k2p&rid=giphy.gif&ct=g"
+        alt="loading"
+      />
       <p> Oops You already have an account ! </p>
       <p> You will be redirected to the home page with love ❤️ </p>
       <div className="heart-loader">
