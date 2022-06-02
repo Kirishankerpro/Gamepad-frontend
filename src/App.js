@@ -32,7 +32,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/games/:id" element={<Gamedetails />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login setuser={setUser} />} />
           <Route path="/signup" element={<Signup />} />
           {token ? <Route path="/collection" element={<Collection />} /> : null}
           <Route path="*" element={<Error />} />
